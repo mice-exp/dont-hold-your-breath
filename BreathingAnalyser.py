@@ -3,7 +3,7 @@ from scipy.signal import butter, filtfilt, find_peaks
 import numpy as np
 
 # BreathingAnalyser – Class to analyse breathing rate and heart rate variability from accelerometer and interbeat interval (IBI) data
-
+plt.ion()
 class BreathingAnalyser:
     def __init__(self, acc_data, ibi_data):
         self.acc_times, self.acc_values = acc_data['times'], acc_data['values']/100.0
@@ -134,6 +134,7 @@ class BreathingAnalyser:
         plt.tight_layout()
         plt.gcf().canvas.manager.set_window_title("Accelerometer & Low Pass data")
         plt.show(block=False)
+        plt.pause(0.001)
 
         # Filtered
         plt.figure()
@@ -145,6 +146,7 @@ class BreathingAnalyser:
         plt.xlabel('Time')
         plt.ylabel('Acceleration (filtered)')
         plt.show(block=False)
+        plt.pause(0.001)
 
     def show_heart_rate_variability(self):
 
@@ -163,6 +165,7 @@ class BreathingAnalyser:
         axes[1].set_ylabel('Interbeat interval', color='r')
         axes[1].tick_params(axis='y', labelcolor='r')
         plt.show(block=False)
+        plt.pause(0.001)
 
         # BR and HRV over time
         fig, ax1 = plt.subplots(figsize=(11, 6))
@@ -178,6 +181,7 @@ class BreathingAnalyser:
         ax2.tick_params(axis='y', labelcolor='r')
         ax2.set_xlabel('Time')
         plt.show(block=False)
+        plt.pause(0.001)
 
         # Breathing rate vs hrv
         plt.figure()
@@ -185,3 +189,4 @@ class BreathingAnalyser:
         plt.xlabel('Breath rate')
         plt.ylabel('HRV')
         plt.show() 
+        plt.pause(0.001)
