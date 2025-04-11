@@ -82,8 +82,10 @@ if __name__ == "__main__":
         breathing_analyser.show_heart_rate_variability()
 
         if not use_sample_data:
-            response = input("Do you want to save the data? (y/n): ")
-            if response.lower() == "y":
-                save_sample_data(acc_data, ibi_data)
-            else:
-                print("Data not saved")
+            print("Auto-saving data without user prompt.")
+            save_sample_data(acc_data, ibi_data)
+            # response = input("Do you want to save the data? (y/n): ")
+            # if response.lower() == "y":
+            #     save_sample_data(acc_data, ibi_data)
+            # else:
+            #     print("Data not saved")
